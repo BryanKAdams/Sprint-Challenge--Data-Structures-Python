@@ -51,10 +51,19 @@ class RingBuffer:
 
 class ArrayRingBuffer:
     def __init__(self, capacity):
-        pass
+        self.current = 0
+        self.storage = [None] * capacity
 
     def append(self, item):
-        pass
+        self.storage[self.current] = item
+        self.current = (self.current + 1) % len(self.storage)
+
 
     def get(self):
-        pass
+        spicy_storage = []
+
+        for item in self.storage:
+            if item is None:
+                break
+            spicy_storage.append(item)
+        return spicy_storage
