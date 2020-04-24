@@ -31,6 +31,18 @@ class RingBuffer:
         list_buffer_contents = []
 
         # TODO: Your code here
+        # assign a value we can keep track of
+        node = self.storage.head
+        # loop until there's no next node and then break
+        while True:
+            # append node value to the array
+            list_buffer_contents.append(node.value)
+            # check if there isn't a next value and break if there isn't
+            if node.next is None:
+                break
+            # if there is a next node, set node to next node
+            node = node.next
+
 
         return list_buffer_contents
 
